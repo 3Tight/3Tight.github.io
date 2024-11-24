@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tight Game Studio</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+  }
+header {
+  background: linear-gradient(to top right, #ff00aa, #9600b5); /* Gradient from left to right */
+  color: #fff;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: #0066cc 3px solid;
+  position: relative; /* Add position relative to header */
+}
+
+  header a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  header ul {
+    padding: 0;
+    list-style: none;
+  }
+  header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0 20px;
+  }
+  header #branding {
+    float: left;
+  }
+  header #branding h1 {
+    margin: 0;
+  }
+  header nav {
+    float: right;
+    margin-top: 10px;
+  }
+  header .highlight, header .current a {
+    color: #e8491d;
+    font-weight: bold;
+  }
+  header a:hover {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  .fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+  }
+  .language-switch {
+    position: absolute; /* Position absolute to header */
+    top: 10px; /* Adjust top position as needed */
+    right: 10px; /* Adjust right position as needed */
+  }
+  .language-switch a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div id="branding">
+      <h1 data-lang data-lang-en="Tight Game Studio" data-lang-zh="紧张游戏工作室">Tight Game Studio</h1>
+    </div>
+    <nav>
+      <ul>
+        <li class="current"><a href="#home" data-lang data-lang-en="Home" data-lang-zh="首页">Home</a></li>
+        <li><a href="#games" data-lang data-lang-en="Games" data-lang-zh="游戏">Games</a></li>
+        <li><a href="#about" data-lang data-lang-en="About" data-lang-zh="关于我们">About</a></li>
+        <li><a href="#contact" data-lang data-lang-en="Contact" data-lang-zh="联系我们">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="language-switch">
+      <a href="#" onclick="switchLanguage('en')">English</a> | <a href="#" onclick="switchLanguage('zh')">中文</a>
+    </div>
+  </div>
+</header>
+
+<div class="container fadeIn">
+  <section id="home">
+    <h2 data-lang data-lang-en="Welcome to Tight Game Studio" data-lang-zh="欢迎来到紧张游戏工作室">Welcome to Tight Game Studio</h2>
+    <p data-lang data-lang-en="Where tension meets relaxation, and games are born." data-lang-zh="紧张与放松的交汇，游戏由此诞生。">Where tension meets relaxation, and games are born.</p>
+  </section>
+  <!-- More sections for games, about, contact, etc. -->
+</div>
+
+<script>
+  function switchLanguage(lang) {
+    document.documentElement.lang = lang;
+    var elements = document.querySelectorAll('[data-lang]');
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].textContent = elements[i].getAttribute('data-lang-' + lang);
+    }
+  }
+</script>
+
+</body>
+</html>
